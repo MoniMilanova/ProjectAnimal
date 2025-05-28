@@ -1,0 +1,307 @@
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #007bff;
+    --light-blue: rgba(0, 105, 255, 0.3);
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-light: #555;
+    --transition: 0.3s ease;
+    --radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: "Helvetica", sans-serif;
+    margin: 0;
+}
+
+header {
+    background: var(--primary-color);
+}
+
+header nav ul {
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.full-background {
+    background: url('../images/img.png') center center / cover no-repeat;
+    height: 150vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.homepage-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Form Containers */
+.registration-container, .about-container, .faq-container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    background-color: var(--light-blue);
+    padding: 3rem;
+    border-radius: var(--radius);
+    top: calc(50% + 30px);
+}
+
+.registration-container h2, .about-container h2, .faq-container h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+/* Registration Form */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.registration-form-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.registration-form-field label {
+    width: 150px;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.registration-form-field input,
+.registration-form-field select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 1em;
+    flex-grow: 1;
+}
+
+.registration-button {
+    margin-top: 55px;
+    text-align: center;
+}
+
+.registration-button button {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background var(--transition);
+}
+
+.registration-button button:hover {
+    background: var(--secondary-color);
+}
+
+/* Products Page */
+.categories-container {
+    padding: 2rem;
+    background-color: var(--white);
+}
+
+.categories-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.best-sellers, .categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    margin-bottom: 2rem;
+}
+
+.best-seller-item, .category-item {
+    text-decoration: none;
+    text-align: center;
+    color: var(--text-dark);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.best-seller-item a, .category-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.best-seller-item img, .category-item img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.best-seller-item span, .category-item span {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.best-seller-item:hover img, .category-item:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.best-seller-item:hover span, .category-item:hover span {
+    color: var(--secondary-color);
+}
+
+/* Categories -> Products Page */
+.categories-products-container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.categories-products-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.product-item {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    text-align: center;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.product-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+}
+
+.product-item span {
+    display: block;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: var(--text-light);
+}
+
+.product-item a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: background-color var(--transition);
+}
+
+.product-item a:hover {
+    background-color: var(--primary-color);
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 100px;
+}
+
+footer .information-container ul {
+    padding: 0;
+    margin: 0;
+}
+
+footer .information-container ul li {
+    padding: 10px;
+    list-style: none;
+}
+
+footer .information-container ul li a {
+    padding-left: 50px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.subscription-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--white);
+}
+
+.subscription-box h4 {
+    margin: 0;
+}
+
+.subscription-box form {
+    display: flex;
+    gap: 10px;
+}
+
+.subscription-box input[type="email"] {
+    padding: 10px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.subscription-box button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--text-dark);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition);
+}
+
+.subscription-box button:hover {
+    background-color: #555;
+}

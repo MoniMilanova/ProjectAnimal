@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registration form</title>
+        <th:block th:include="~{/fragments/head.html}"/>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <th:block th:include="~{/fragments/header.html}"/>
+
+        <div class="full-background">
+            <div class="registration-container">
+                <form class="registration-form"
+                      th:action="@{/users/registration/form}"
+                      th:method="post"
+                      th:object="${userRegistrationDTO}">
+                    <h2>Registration form</h2>
+                    <div class="registration-form-field">
+                        <label for="username">Username</label>
+                        <input id="username"
+                               th:field="*{username}"
+                               th:errorclass="is-invalid"
+                               type="text" name="username"
+                               placeholder="Username"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="email">Email</label>
+                        <input id="email"
+                               th:field="*{email}"
+                               th:errorclass="is-invalid"
+                               type="email"
+                               placeholder="Email" required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="firstName">First name</label>
+                        <input id="firstName"
+                               th:field="*{firstName}"
+                               th:errorclass="is-invalid"
+                               type="text"
+                               placeholder="First name"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="lastName">Last name</label>
+                        <input id="lastName"
+                               th:field="*{lastName}"
+                               th:errorclass="is-invalid"
+                               type="text"
+                               placeholder="Last name"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="age">Age</label>
+                        <input id="age"
+                               th:field="*{age}"
+                               th:errorclass="is-invalid"
+                               th:value="${age != null ? '' : age}"
+                               type="text"
+                               placeholder="Age"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="password">Password</label>
+                        <input id="password"
+                               th:field="*{password}"
+                               th:errorclass="is-invalid"
+                               type="password"
+                               placeholder="Password"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="confirmPassword">Confirm password</label>
+                        <input id="confirmPassword"
+                               th:field="*{confirmPassword}"
+                               th:errorclass="is-invalid"
+                               type="password"
+                               placeholder="Confirm password"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="gender">Gender</label>
+                        <select id="gender"
+                                th:field="*{gender}"
+                                required>
+                            <option value="">Select Gender</option> <!-- Placeholder option -->
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="registration-button">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <th:block th:include="~{/fragments/footer.html}"/>
+        </footer>
+    </body>
+</html>

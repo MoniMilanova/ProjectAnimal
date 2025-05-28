@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Products - Puppies Passion</title>
+        <th:block th:include="~{/fragments/head.html}"/>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <th:block th:include="~{/fragments/header.html}"/>
+
+        <div class="categories-container">
+            <h2>Best sellers</h2>
+            <div class="best-sellers">
+                <div th:each="product : ${products}" class="best-seller-item">
+                    <a th:href="@{/products/{id}(id=${product.id})}">
+                        <img th:src="@{${product.getPictureUrls().getFirst().getUrl()}}" th:alt="${product.getName()}">
+                        <span th:text="${product.getName()}"></span>
+                    </a>
+                </div>
+            </div>
+
+            <h2>Categories</h2>
+            <div class="categories">
+                <div th:each="category : ${categories}" class="category-item">
+                    <a th:href="@{'/products/category/' + ${category.getName().toLowerCase()}}" class="category-item">
+                        <img th:src="${category.getUrl()}" th:alt="${category + '-category'}">
+                        <span th:text="${category.getName()}"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <th:block th:include="~{/fragments/footer.html}"/>
+        </footer>
+    </body>
+</html>
